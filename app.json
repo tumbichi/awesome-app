@@ -5,8 +5,19 @@
     "name": "awesome-app",
     "slug": "awesome-app",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "center",
+      "backgroundColor": "#e0e0e0"
+    }
+  },
+  "android": {
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#e0e0e0",
+      "resizeMode": "contain"
+    }
   }
 }
