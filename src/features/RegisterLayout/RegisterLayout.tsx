@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Content,
   Form,
@@ -13,7 +14,13 @@ import {
   H1,
 } from 'native-base';
 import { Dimensions, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { onChangeInput, RegisterActionType } from './actions';
+import { RootState } from 'app/redux';
 export const RegisterLayout = () => {
+  const dispatch = useDispatch();
+  const { form } = useSelector(({ register }: RootState) => ({
+    form: register.form,
+  }));
   /* 
     {
       displayName
@@ -24,6 +31,11 @@ export const RegisterLayout = () => {
       // uid
     } 
   */
+
+  const handleClick = () => {
+    dispatch(onChangeInput('email', 'germanviglietti@gmail.com'));
+    console.log('HANDLE_CLICK', form);
+  };
 
   return (
     <Container>
@@ -86,11 +98,7 @@ export const RegisterLayout = () => {
                 style={{ marginVertical: 4 }}
                 secureTextEntry
               />
-              {true ? (
-                <Icon name="eye-outline" />
-              ) : (
-                <Icon name="eye-off-outline" />
-              )}
+              {true ? <Icon name="eye" /> : <Icon name="eye-off" />}
             </Item>
             <Item floatingLabel error={false}>
               <Label>Confirmar contraseña</Label>
@@ -102,14 +110,10 @@ export const RegisterLayout = () => {
                 style={{ marginVertical: 4 }}
                 secureTextEntry
               />
-              {true ? (
-                <Icon name="eye-outline" />
-              ) : (
-                <Icon name="eye-off-outline" />
-              )}
+              {true ? <Icon name="eye" /> : <Icon name="eye-off" />}
             </Item>
           </Form>
-          <Button full rounded style={{ marginTop: 32 }}>
+          <Button full rounded style={{ marginTop: 32 }} onPress={handleClick}>
             <Text>Registrate</Text>
           </Button>
           <Button full transparent rounded>

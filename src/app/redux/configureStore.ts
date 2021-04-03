@@ -7,11 +7,11 @@ import rootReducer from './rootReducer';
 // const sagaMiddleware = createSagaMiddleware();
 
 export const configureStore = () => {
-  // const composeEnhancers = composeWithDevTools({});
+  const composeEnhancers = composeWithDevTools({ realtime: true, port: 8081 });
   const store = createStore(
     rootReducer,
-    composeWithDevTools({})
-    // composeEnhancers(/* applyMiddleware(sagaMiddleware) */)
+    // composeWithDevTools({})
+    composeEnhancers(/* applyMiddleware(sagaMiddleware) */)
   );
 
   // sagaMiddleware.run(rootSaga);

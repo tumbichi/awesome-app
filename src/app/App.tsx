@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useFonts } from 'expo-font';
 import SplashScreen from 'react-native-splash-screen';
-import { configureStore } from './redux/configureStore';
+import { configureStore } from './redux';
 import { HomeScreen, SignInScreen, SignUpScreen } from '../screens';
 
 // import { ScreenLoading } from '../components';

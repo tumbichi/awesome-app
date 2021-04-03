@@ -1,12 +1,28 @@
-const initialState = {};
+import { AppActionType, REMOVE_USER, SET_USER } from '../actions';
+
+const initialState = {
+  user: null,
+};
 
 type AppState = {};
 
 export const appReducer = (
   state: AppState = initialState,
-  { type, payload }: AppActionType
+  action: AppActionType
 ) => {
-  switch (type) {
+  switch (action.type) {
+    case SET_USER: {
+      return {
+        ...state,
+        user: action.payload,
+      };
+    }
+    case REMOVE_USER: {
+      return {
+        ...state,
+        user: null,
+      };
+    }
     default: {
       return state;
     }

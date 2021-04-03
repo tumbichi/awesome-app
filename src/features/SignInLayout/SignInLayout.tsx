@@ -69,9 +69,9 @@ export const SignInLayout = ({ navigateToRegister }) => {
                   secureTextEntry
                 />
                 {true ? (
-                  <Icon name="eye-outline" />
+                  <Icon name="eye" />
                 ) : (
-                  <Icon name="eye-off-outline" />
+                  <Icon name="eye-off" />
                 )}
               </Item>
             </Form>
